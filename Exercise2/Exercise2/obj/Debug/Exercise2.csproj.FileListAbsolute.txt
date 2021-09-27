@@ -7,3 +7,9 @@ D:\Дмитрий\NETI\C#\Exercise2\Exercise2\obj\Debug\Exercise2.csproj.Assembl
 D:\Дмитрий\NETI\C#\Exercise2\Exercise2\obj\Debug\Exercise2.csproj.CoreCompileInputs.cache
 D:\Дмитрий\NETI\C#\Exercise2\Exercise2\obj\Debug\Exercise2.exe
 D:\Дмитрий\NETI\C#\Exercise2\Exercise2\obj\Debug\Exercise2.pdb
+Z:\C#\oopCSNSTU\Exercise2\Exercise2\bin\Debug\Exercise2.exe.config
+Z:\C#\oopCSNSTU\Exercise2\Exercise2\bin\Debug\Exercise2.exe
+Z:\C#\oopCSNSTU\Exercise2\Exercise2\bin\Debug\Exercise2.pdb
+Z:\C#\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.csprojAssemblyReference.cache
+Z:\C#\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.exe
+Z:\C#\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.pdb

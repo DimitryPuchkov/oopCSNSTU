@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace Exercise2
 {
@@ -48,23 +49,24 @@ namespace Exercise2
       static void Main(string[] args)
       {
          Student st1 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2011.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
-         Student st2 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2002.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
+         Student st2 = new Student("Petr", "Ivanovich", "Petrov", DateTime.ParseExact("2002.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
          Student st3 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2001.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
          Student st4 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2003.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
          Student st5 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2004.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
-         Student st6 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2005.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
+         Student st6 = new Student("Vasa", "Ivanovich", "Petrov", DateTime.ParseExact("2005.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
 
          Teacher t1 = new Teacher("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("1950.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), "tpi", 2.5f, Degrees.Teacher);
          Teacher t2 = new Teacher("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("1959.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), "tpi", 2.5f, Degrees.Teacher);
          //Teacher t2 = new Teacher("Ivan", "Ivanovich", "Ivanon", new DateTime(), "tpi", 2.9f, Degrees.HeadOfDepartment);
          University Uni = new University();
          // Uni.Add(new Teacher("Ivan", "Ivanovich", "Ivanon", new DateTime(), "tpi", 2.9f, Degrees.HeadOfDepartment));
-         Uni.Add(t2);
-         Uni.Add(t1);
+         Uni.Add(st5);
+         Uni.Add(st6);
          Uni.Add(st1);
          Uni.Add(st2);
          Uni.Add(st3);
-         var list = Uni.Students;
+         var list = Uni.FindByLastName("Petrov");
+         Uni.Remove(list.ElementAt(0));
          foreach(var l in list)
          {
             Console.WriteLine(l.ToString());

@@ -34,19 +34,18 @@ namespace Exercise2
 
       public void Add(IPerson person)
       {
-         //if(person is Student || person is Teacher)
-         people.Add(person);
+         if(person is Student || person is Teacher)
+            people.Add(person);
       }
 
       public IEnumerable<IPerson> FindByLastName(string lastName)
       {
-         throw new NotImplementedException();
-
+         return people.Where(p => p.Lastname == lastName).OrderBy(p => p.Name);
       }
 
       public void Remove(IPerson person)
       {
-         
+         people.Remove(person);
       }
    }
 }
