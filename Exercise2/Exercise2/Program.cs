@@ -16,7 +16,7 @@ namespace Exercise2
          Console.WriteLine(" list - printing list of people from University");
          Console.WriteLine(" exit - exiting from program");
          Console.WriteLine(" help - printing this list");
-         Console.WriteLine(" [comand] --help  - manual for comand");
+        // Console.WriteLine(" [comand] --help  - manual for comand");
       }
       public void addPerson(string s)
       {
@@ -33,18 +33,43 @@ namespace Exercise2
          string lastname = Console.ReadLine();
          Console.Write("Date of birth: [yyyy.mm.dd]");
          DateTime date = DateTime.ParseExact(Console.ReadLine(), "yyyy.MM.dd", CultureInfo.InvariantCulture);
-         if(s == "s")
+         if(s == "t")
+         {
+            Console.Write("Department: ");
+            string department =  Console.ReadLine();
+            Console.Write("Seniority: ");
+            float seniority = float.Parse(Console.ReadLine());
+            Console.Write("Degree (1 - HeadOfDepartment, 2 - Professor, 3 - ProfessorAssistant, 4 - Teacher, 5 - LabAssistant): ");
+            Degrees degree = (Degrees)byte.Parse(Console.ReadLine());
+            uni.Add(new Teacher(name, patronomic, lastname, date, department, seniority, degree));
+         }
+         else
          {
             Console.Write("Course: ");
-            byte course =  byte.Parse(Console.ReadLine());
+            byte course = byte.Parse(Console.ReadLine());
             Console.Write("Group: ");
             string group = Console.ReadLine();
             Console.Write("Averagescore: ");
             float averagescore = float.Parse(Console.ReadLine());
             uni.Add(new Student(name, patronomic, lastname, date, course, group, averagescore));
          }
-         
-         Console.Write("Date of birth: [yyyy.mm.dd]");
+      }
+      public void remove(string lastname)
+      {
+         var rmlist = uni.FindByLastName(lastname);
+         if(rmlist.Count() == 1)
+         {
+            uni.Remove(rmlist.First());
+            return;
+         }
+         foreach (var l in rmlist)
+         {
+            Console.WriteLine(l.ToString());
+         }
+         Console.Write("Enter a number of person, who neet to remove");
+         int i = Int32.Parse(Console.ReadLine());
+         uni.Remove(rmlist.ElementAt(i - 1));
+         return;
       }
       static void Main(string[] args)
       {

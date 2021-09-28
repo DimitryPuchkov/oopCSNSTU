@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise2
 {
-   public enum Degrees
+   public enum Degrees : byte
    {
       HeadOfDepartment,
       Professor,
@@ -26,7 +26,7 @@ namespace Exercise2
          Seniority = seniority;
          Degree = degree;
       }
-
+      // TODO: Dasha write a metod ToString
 
    }
 }

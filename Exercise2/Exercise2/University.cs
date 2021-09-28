@@ -12,6 +12,7 @@ namespace Exercise2
       {
          get
          {
+            // TODO: Dasha please add feature for sort people by ascending or descending
             return people.OrderBy(p => p.Date);
          }
       }
@@ -20,6 +21,7 @@ namespace Exercise2
       {
          get
          {
+            // TODO: Dasha please add feature for sort students by ascending or descending
             return people.OfType<Student>().OrderBy(p => p.Date);
          }
       }
@@ -28,6 +30,7 @@ namespace Exercise2
       {
          get
          {
+            // TODO: Dasha please add feature for sort teacher by ascending or descending
             return people.OfType<Teacher>().OrderBy(p => p.Date);
          }
       }
