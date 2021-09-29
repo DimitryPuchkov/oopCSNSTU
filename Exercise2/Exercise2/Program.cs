@@ -138,6 +138,7 @@ namespace Exercise2
          //Console.WriteLine("dfjalndkfjsafj \\");
          
          //Console.ReadLine();
+         //TODO Dasha please make a read data from file
          Console.WriteLine("Type 'help' for getting help");
          bool flag = true;
          while (flag)
