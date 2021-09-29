@@ -10,5 +10,6 @@ namespace Exercise2
       void Add(IPerson person);
       void Remove(IPerson person);
       IEnumerable<IPerson> FindByLastName(string lastName);
+      IEnumerable<Teacher> FindByDepartment(string text);
    }
 }

@@ -46,6 +46,11 @@ namespace Exercise2
          return people.Where(p => p.Lastname == lastName).OrderBy(p => p.Name);
       }
 
+      public IEnumerable<Teacher> FindByDepartment(string text)
+      {
+         return people.OfType<Teacher>().Where(p => p.Department == text).OrderBy(p => p.Lastname);
+      }
+
       public void Remove(IPerson person)
       {
          people.Remove(person);
