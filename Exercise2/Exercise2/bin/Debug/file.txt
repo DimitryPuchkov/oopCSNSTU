@@ -1,0 +1,10 @@
+Prokhor Arsenievich Bobrikov 2002.01.09 2 pm01 3,3
+Prokhor Mikhailovich Karimov 2000.02.03 3 pmm2 4,9
+Pavel Andronikovich Dyomshin 1988.02.03 tpi 10,3 Teacher
+Moisey Iraklievich Barndyk 1950.11.09 mpi 35,0 HeadOfDepartment
+Vladlen Trofimovich Kapitsa 1978.09.19 tpi 15,2 ProfessorAssistant
+Kuzma Anikitevich Elkin 1976.08.31 mpi 17,6 Professor
+Anastasia Efimovna Yamaletdinova 1995.12.01 lpi 3,2 LabAssistant
+Kirill Ilyevich Pystogov 2002.11.09 2 pm01 3,9
+Rimma Andriyanovna Bazanova 2001.11.06 3 pmm3 5,0
+Anastasia Philippovna Rzhevskaya 1985.01.01 lpi 7,2 LabAssistant tpi 2,5 HeadOfDepartment

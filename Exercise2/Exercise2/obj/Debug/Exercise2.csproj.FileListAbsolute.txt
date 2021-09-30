@@ -19,3 +19,10 @@ D:\Дмитрий\NETI\C#\oopCSNSTU\Exercise2\Exercise2\bin\Debug\Exercise2.pdb
 D:\Дмитрий\NETI\C#\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.csproj.CoreCompileInputs.cache
 D:\Дмитрий\NETI\C#\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.exe
 D:\Дмитрий\NETI\C#\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.pdb
+D:\Repos\oopCSNSTU\Exercise2\Exercise2\bin\Debug\Exercise2.exe.config
+D:\Repos\oopCSNSTU\Exercise2\Exercise2\bin\Debug\Exercise2.exe
+D:\Repos\oopCSNSTU\Exercise2\Exercise2\bin\Debug\Exercise2.pdb
+D:\Repos\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.csprojAssemblyReference.cache
+D:\Repos\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.csproj.CoreCompileInputs.cache
+D:\Repos\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.exe
+D:\Repos\oopCSNSTU\Exercise2\Exercise2\obj\Debug\Exercise2.pdb

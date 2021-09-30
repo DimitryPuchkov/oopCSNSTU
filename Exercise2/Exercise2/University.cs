@@ -7,13 +7,16 @@ namespace Exercise2
    class University : IUniversity
    {
       List<IPerson> people = new List<IPerson>();
+      public bool SortMode = false;
 
       public IEnumerable<IPerson> Persons
       {
          get
          {
-            // TODO: Dasha please add feature for sort people by ascending or descending
-            return people.OrderBy(p => p.Date);
+            if (!SortMode)
+                return people.OrderBy(p => p.Date);
+            else
+                return people.OrderByDescending(p => p.Date);
          }
       }
 
@@ -21,8 +24,10 @@ namespace Exercise2
       {
          get
          {
-            // TODO: Dasha please add feature for sort students by ascending or descending
-            return people.OfType<Student>().OrderBy(p => p.Date);
+            if (!SortMode)
+                return people.OfType<Student>().OrderBy(p => p.Date);
+            else
+                return people.OfType<Student>().OrderByDescending(p => p.Date);
          }
       }
 
@@ -30,8 +35,10 @@ namespace Exercise2
       {
          get
          {
-            // TODO: Dasha please add feature for sort teacher by ascending or descending
-            return people.OfType<Teacher>().OrderBy(p => p.Date);
+            if (!SortMode)
+                return people.OfType<Teacher>().OrderBy(p => p.Date);
+            else 
+                return people.OfType<Teacher>().OrderByDescending(p => p.Date);
          }
       }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 
 namespace Exercise2
@@ -11,16 +12,16 @@ namespace Exercise2
       static void getHelp()
       {
          Console.WriteLine("Commands:\n add - adding person to University. Options -s adding a student; -t adding a teacher");
-         Console.WriteLine(" revove [lastname] - removing person from University");
+         Console.WriteLine(" remove [lastname] - removing person from University");
          Console.WriteLine(" find [option] [finding str] - searching people from University. Options -l finding by lastname; -d finding by department");
          Console.WriteLine(" list [options] - printing list of people from University. Options -s listing students; -t silting teachers; -p listing all");
+         Console.WriteLine(" sort [option] - a: ascending or d: descending");
          Console.WriteLine(" exit - exiting from program");
          Console.WriteLine(" help - printing this list");
-        // Console.WriteLine(" [comand] --help  - manual for comand");
       }
       static void addPerson(string opt)
       {
-         if(opt != "-s" && opt != "-t")
+         if (opt != "-s" && opt != "-t")
          {
             Console.WriteLine("Uncorrect option for add comand");
             return;
@@ -33,10 +34,10 @@ namespace Exercise2
          string lastname = Console.ReadLine();
          Console.Write("Date of birth: [yyyy.mm.dd]");
          DateTime date = DateTime.ParseExact(Console.ReadLine(), "yyyy.MM.dd", CultureInfo.InvariantCulture);
-         if(opt == "t")
+         if (opt == "-t")
          {
             Console.Write("Department: ");
-            string department =  Console.ReadLine();
+            string department = Console.ReadLine();
             Console.Write("Seniority: ");
             float seniority = float.Parse(Console.ReadLine());
             Console.Write("Degree (1 - HeadOfDepartment, 2 - Professor, 3 - ProfessorAssistant, 4 - Teacher, 5 - LabAssistant): ");
@@ -59,14 +60,15 @@ namespace Exercise2
       static void remove(string lastname)
       {
          var rmlist = uni.FindByLastName(lastname);
-         if(rmlist.Count() == 1)
+         if (rmlist.Count() == 1)
          {
             uni.Remove(rmlist.First());
+            Console.WriteLine("Person removed successfuly");
             return;
          }
          foreach (var l in rmlist)
             Console.WriteLine(l.ToString());
-         Console.Write("Enter a number of person, who neet to remove");
+         Console.Write("Enter a number of person, who need to remove: ");
          int i = Int32.Parse(Console.ReadLine());
          uni.Remove(rmlist.ElementAt(i - 1));
          Console.WriteLine("Person removed successfuly");
@@ -90,7 +92,7 @@ namespace Exercise2
       }
       static void list(string opt)
       {
-         switch(opt)
+         switch (opt)
          {
             case "-p":
                foreach (var p in uni.Persons)
@@ -111,33 +113,17 @@ namespace Exercise2
       }
       static void Main(string[] args)
       {
-         //Student st1 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2011.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
-         //Student st2 = new Student("Petr", "Ivanovich", "Petrov", DateTime.ParseExact("2002.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
-         //Student st3 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2001.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
-         //Student st4 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2003.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
-         //Student st5 = new Student("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("2004.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
-         //Student st6 = new Student("Vasa", "Ivanovich", "Petrov", DateTime.ParseExact("2005.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), 1, "pm11", 2.0);
+         string[] lines = File.ReadAllLines("file.txt");
+         string[] data;
+         for (int i = 0; i < lines.Length; i++)
+         {
+            data = lines[i].Split();
+            if (int.TryParse(data[4], out int _))
+               uni.Add(Student.Parse(lines[i]));
+            else
+               uni.Add(Teacher.Parse(lines[i]));
+         }
 
-         //Teacher t1 = new Teacher("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("1950.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), "tpi", 2.5f, Degrees.Teacher);
-         //Teacher t2 = new Teacher("Ivan", "Ivanovich", "Ivanon", DateTime.ParseExact("1959.01.01", "yyyy.MM.dd", CultureInfo.InvariantCulture), "tpi", 2.5f, Degrees.Teacher);
-         //Teacher t2 = new Teacher("Ivan", "Ivanovich", "Ivanon", new DateTime(), "tpi", 2.9f, Degrees.HeadOfDepartment);
-         //University Uni = new University();
-         // Uni.Add(new Teacher("Ivan", "Ivanovich", "Ivanon", new DateTime(), "tpi", 2.9f, Degrees.HeadOfDepartment));
-         //Uni.Add(st5);
-         //Uni.Add(st6);
-         //Uni.Add(st1);
-         //Uni.Add(st2);
-         //Uni.Add(st3);
-         //var list = Uni.FindByLastName("Petrov");
-         //Uni.Remove(list.ElementAt(0));
-         //foreach(var l in list)
-         //{
-         //   Console.WriteLine(l.ToString());
-         //}
-
-         //Console.WriteLine("dfjalndkfjsafj \\");
-         
-         //Console.ReadLine();
          Console.WriteLine("Type 'help' for getting help");
          bool flag = true;
          while (flag)
@@ -171,6 +157,14 @@ namespace Exercise2
                   else
                      Console.WriteLine("Uncorrect using list command");
                   break;
+               case "sort":
+                  if (str[1] == "a")
+                     uni.SortMode = false;
+                  else if (str[1] == "d")
+                     uni.SortMode = true;
+                  else
+                     Console.WriteLine("Uncorrect comand");
+                  break;
                case "help":
                   getHelp();
                   break;
@@ -183,7 +177,8 @@ namespace Exercise2
             }
 
          }
+
       }
    }
-
 }
+
