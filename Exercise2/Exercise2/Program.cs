@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-
+//comment
 namespace Exercise2
 {
    internal class Program
