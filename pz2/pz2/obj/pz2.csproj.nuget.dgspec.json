@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\pz2\\pz2\\pz2.csproj": {}
+    "D:\\Dmitry\\NETI\\C#\\oopCSNSTU\\pz2\\pz2\\pz2.csproj": {}
   },
   "projects": {
-    "Z:\\pz2\\pz2\\pz2.csproj": {
+    "D:\\Dmitry\\NETI\\C#\\oopCSNSTU\\pz2\\pz2\\pz2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\pz2\\pz2\\pz2.csproj",
+        "projectUniqueName": "D:\\Dmitry\\NETI\\C#\\oopCSNSTU\\pz2\\pz2\\pz2.csproj",
         "projectName": "pz2",
-        "projectPath": "Z:\\pz2\\pz2\\pz2.csproj",
-        "packagesPath": "C:\\Users\\puchkov.2020\\.nuget\\packages\\",
-        "outputPath": "Z:\\pz2\\pz2\\obj\\",
+        "projectPath": "D:\\Dmitry\\NETI\\C#\\oopCSNSTU\\pz2\\pz2\\pz2.csproj",
+        "packagesPath": "C:\\Users\\Dmitry\\.nuget\\packages\\",
+        "outputPath": "D:\\Dmitry\\NETI\\C#\\oopCSNSTU\\pz2\\pz2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\puchkov.2020\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dmitry\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
