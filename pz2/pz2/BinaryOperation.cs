@@ -14,10 +14,7 @@ namespace pz2
          a = _a;
          b = _b;
       }
-      public virtual double Compute(IReadOnlyDictionary<string, double> variablesValues)
-      {
-         return 0;
-      }
+      public virtual double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
       public virtual IEnumerable<string> Variables  { get => a.Variables.Concat(b.Variables); }
       public virtual bool IsConstant { get; }
       public virtual bool IsPolynom { get; }
