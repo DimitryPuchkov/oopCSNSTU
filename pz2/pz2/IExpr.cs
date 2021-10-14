@@ -6,10 +6,9 @@ namespace pz2
 {
    interface IExpr
    {
-      double Compute(IReadOnlyDictionary<string, double> variablesValues);
-      IEnumerable<string> Variables { get; }
       bool IsConstant { get; }
       bool IsPolynom { get; }
-
+      double Compute(IReadOnlyDictionary<string, double> variablesValues);// передаем словарь имя переменной - значение, получаем значение выражения
+      IEnumerable<string> Variables { get; }
    }
 }
