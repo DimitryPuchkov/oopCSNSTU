@@ -10,6 +10,7 @@ namespace pz2.functions
       public override bool IsConstant { get => a.IsConstant; }
       public override bool IsPolynom { get => false; }
       public Sch(Expr a) : base(a) { }
+      
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues)
       {
          var r = Math.Sinh(a.Compute(variablesValues));

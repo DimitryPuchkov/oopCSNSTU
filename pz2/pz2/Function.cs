@@ -11,6 +11,6 @@ namespace pz2
       public override bool IsConstant { get; }
       public override bool IsPolynom { get; }
       public Function(Expr a) => this.a = a;
-      public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
+      //public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
    }
 }

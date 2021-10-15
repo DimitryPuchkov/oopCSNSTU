@@ -14,7 +14,7 @@ namespace pz2
          this.a = a;
          this.b = b;
       }
-      public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
+      //public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
       public override IEnumerable<string> Variables  { get => a.Variables.Concat(b.Variables); }
       public override bool IsConstant { get; }
       public override bool IsPolynom { get; }

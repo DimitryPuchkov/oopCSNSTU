@@ -11,12 +11,22 @@ namespace pz2
    {
       public virtual bool IsConstant { get; }
       public virtual bool IsPolynom { get; }
-      public virtual double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0; // передаем словарь имя переменной - значение, получаем значение выражения
+      abstract public double Compute(IReadOnlyDictionary<string, double> variablesValues); // передаем словарь имя переменной - значение, получаем значение выражения
       public virtual IEnumerable<string> Variables { get; }
       public static Expr operator +(Expr a, Expr b) =>new  Sum(a, b);
       public static Expr operator -(Expr a, Expr b) =>new  Sub(a, b);
       public static Expr operator *(Expr a, Expr b) =>new  Mult(a, b);
       public static Expr operator /(Expr a, Expr b) =>new  Div(a, b);
       public static Expr operator -(Expr a) =>new  UnaryMinus(a);
+   }
+
+   static class Functions
+   {
+      public static Expr Sinh(Expr a) => new Sinh(a);
+      public static Expr Cosh(Expr a) => new Cosh(a);
+      public static Expr Tanh(Expr a) => new Tanh(a);
+      public static Expr Coth(Expr a) => new Coth(a);
+      public static Expr Sch(Expr a) => new Sch(a);
+      public static Expr Csch(Expr a) => new Csch(a);
    }
 }

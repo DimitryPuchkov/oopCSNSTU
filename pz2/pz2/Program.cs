@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using pz2.operations;
 using pz2.functions;
+using static pz2.Functions;
 namespace pz2
 {
    class Program
@@ -16,6 +17,7 @@ namespace pz2
          var c5 = new Constant(5);
          var a = new Variable("a");
          var b = new Variable("b");
+         var e1 = Sinh(a * b);
          var e = c5 * new Sch(c4) - a * new Csch(b);
          var dict = new Dictionary<string, double>();
          dict.Add("a", 3);
