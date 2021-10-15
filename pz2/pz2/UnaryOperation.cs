@@ -4,14 +4,14 @@ using System.Text;
 
 namespace pz2
 {
-   abstract class UnaryOperation: IExpr
+   abstract class UnaryOperation: Expr
    {
-      public double Compute(IReadOnlyDictionary<string, double> variablesValues)
-      {
-         return 0;
-      }
-      public IEnumerable<string> Variables { get; }
-      public bool IsConstant { get; }
-      public bool IsPolynom { get; }
+      protected Expr a;
+      public override IEnumerable<string> Variables { get; }
+      public override bool IsConstant { get =>a.IsConstant; }
+      public override bool IsPolynom { get=>a.IsPolynom; }
+      public UnaryOperation(Expr a) => this.a = a;
+      public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
+
    }
 }

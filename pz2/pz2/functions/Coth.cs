@@ -7,17 +7,16 @@ namespace pz2.functions
 {
    class Coth : Function
    {
-      private IExpr a;
       public override bool IsConstant { get => a.IsConstant; }
       public override bool IsPolynom { get => false; }
-      public Coth(IExpr _a) { a = _a; }
+      public Coth(Expr a) : base(a) { }
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues)
       {
          var r = a.Compute(variablesValues);
          if (r == 0)
-            throw new YouMadman("You madman!");
+            throw new YouMadmanException("You madman! Coth(0) is impossible! ");
          return  1 / Math.Tanh(a.Compute(variablesValues));
       }
-      public override string ToString() => $"Coth({a.ToString()})";
+      public override string ToString() => $"Coth({a})";
    }
 }

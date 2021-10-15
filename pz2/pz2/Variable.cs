@@ -4,14 +4,14 @@ using System.Text;
 
 namespace pz2
 {
-   class Variable: IExpr
+   class Variable: Expr
    {
       private string name; // имя переменной, например x
-      public bool IsConstant { get => false; }
-      public bool IsPolynom { get => true; }
+      public override bool IsConstant { get => false; }
+      public override bool IsPolynom { get => true; }
       public Variable(string _name) => name = _name;
-      public double Compute(IReadOnlyDictionary<string, double> variablesValues) => variablesValues[name];
-      public IEnumerable<string> Variables { get => new List<string> { name }; }
-
+      public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => variablesValues[name];
+      public override IEnumerable<string> Variables { get => new List<string> { name }; }
+      public override string ToString() => name;
    }
 }

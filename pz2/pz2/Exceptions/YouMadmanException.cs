@@ -4,9 +4,9 @@ using System.Text;
 
 namespace pz2.Exceptions
 {
-   class YouMadman : Exception
+   class YouMadmanException : Exception
    {
-      public YouMadman(string message)
+      public YouMadmanException(string message)
         : base(message)
       {
       }

@@ -5,18 +5,18 @@ using System.Linq;
 
 namespace pz2
 {
-   abstract class BinaryOperation : IExpr
+   abstract class BinaryOperation : Expr
    {
-      private IExpr a;
-      private IExpr b;
-      public BinaryOperation(IExpr _a, IExpr _b)
+      protected Expr a;
+      protected Expr b;
+      public BinaryOperation(Expr a, Expr b)
       {
-         a = _a;
-         b = _b;
+         this.a = a;
+         this.b = b;
       }
-      public virtual double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
-      public IEnumerable<string> Variables  { get => a.Variables.Concat(b.Variables); }
-      public virtual bool IsConstant { get; }
-      public virtual bool IsPolynom { get; }
+      public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
+      public override IEnumerable<string> Variables  { get => a.Variables.Concat(b.Variables); }
+      public override bool IsConstant { get; }
+      public override bool IsPolynom { get; }
    }
 }
