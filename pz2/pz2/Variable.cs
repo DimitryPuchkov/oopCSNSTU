@@ -13,5 +13,6 @@ namespace pz2
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => variablesValues[name];
       public override IEnumerable<string> Variables { get => new List<string> { name }; }
       public override string ToString() => name;
+      public override Expr Deriv() => new Constant(1);
    }
 }

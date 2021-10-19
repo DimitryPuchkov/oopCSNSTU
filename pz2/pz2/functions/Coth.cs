@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using pz2.Exceptions;
+using pz2.operations;
 
 namespace pz2.functions
 {
@@ -18,5 +19,6 @@ namespace pz2.functions
          return  1 / Math.Tanh(a.Compute(variablesValues));
       }
       public override string ToString() => $"Coth({a})";
+      public override Expr Deriv() => (-1 / new Coth(a)) * a.Deriv() ;
    }
 }

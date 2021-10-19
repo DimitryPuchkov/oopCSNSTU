@@ -22,7 +22,7 @@ namespace pz2
          var dict = new Dictionary<string, double>();
          dict.Add("a", 3);
          dict.Add("b", 2);
-
+         Expr ex = 5.0 * Sinh(b);
          Console.WriteLine(e);
       }
    }

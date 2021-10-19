@@ -12,5 +12,6 @@ namespace pz2.operations
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => a.Compute(variablesValues) - b.Compute(variablesValues);
 
       public override string ToString() => $"({a} - {b})";
+      public override Expr Deriv() => a.Deriv() - b.Deriv();
    }
 }

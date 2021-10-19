@@ -14,6 +14,8 @@ namespace pz2
       public override IEnumerable<string> Variables => Enumerable.Empty<string>(); 
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => value;
       public override string ToString() => value.ToString();
-     // public Constant opetator Constant(double a) => new Constant(a);
+      public override Expr Deriv() => new Constant(0);
+
+      // public Constant opetator Constant(double a) => new Constant(a);
    }
 }
