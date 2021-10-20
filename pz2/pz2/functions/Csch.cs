@@ -18,5 +18,9 @@ namespace pz2.functions
          return 1 / r;
       }
       public override string ToString() => $"Csch({a})";
+      public override Expr Deriv()
+      {
+         throw new NotImplementedException();
+      }
    }
 }

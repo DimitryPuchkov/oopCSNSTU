@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static pz2.Functions;
 
 namespace pz2.functions
 {
@@ -11,7 +12,7 @@ namespace pz2.functions
       public Sinh(Expr a): base(a) {}
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => Math.Sinh(a.Compute(variablesValues));
       public override string ToString() => $"Sinh({a})";
-      public override Expr Deriv() => new Cosh(a) * a.Deriv();
+      public override Expr Deriv() =>  Cosh(a) * a.Deriv();
    }
 }
 

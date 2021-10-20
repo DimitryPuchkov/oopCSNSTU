@@ -8,7 +8,7 @@ namespace pz2
    class Constant:Expr
    {
       private readonly double value; // значение константы
-      public Constant(double _value) => value = _value;
+      public Constant(double val) => value = val;
       public override bool IsConstant { get => true; }
       public override bool IsPolynom { get => false; }
       public override IEnumerable<string> Variables => Enumerable.Empty<string>(); 
