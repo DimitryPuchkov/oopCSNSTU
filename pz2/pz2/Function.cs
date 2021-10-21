@@ -8,9 +8,8 @@ namespace pz2
    {
       protected Expr a;
       public override IEnumerable<string> Variables { get => a.Variables; }
-      public override bool IsConstant { get; }
-      public override bool IsPolynom { get; }
+      public override bool IsConstant { get => a.IsConstant; }
+      public override bool IsPolynom { get => false; }
       public Function(Expr a) => this.a = a;
-      //public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
    }
 }

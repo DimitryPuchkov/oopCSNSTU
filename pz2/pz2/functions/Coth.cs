@@ -9,8 +9,6 @@ namespace pz2.functions
 {
    class Coth : Function
    {
-      public override bool IsConstant { get => a.IsConstant; }
-      public override bool IsPolynom { get => false; }
       public Coth(Expr a) : base(a) { }
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues)
       {
@@ -20,6 +18,6 @@ namespace pz2.functions
          return  1 / Math.Tanh(a.Compute(variablesValues));
       }
       public override string ToString() => $"Coth({a})";
-      public override Expr Deriv() => (-1 /Coth(a)) * a.Deriv() ;
+      public override Expr Deriv() => (-1 /(Sinh(a)*Sinh(a))) * a.Deriv() ;
    }
 }
