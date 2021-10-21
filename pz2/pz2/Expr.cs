@@ -15,6 +15,14 @@ namespace pz2
       abstract public double Compute(IReadOnlyDictionary<string, double> variablesValues); // передаем словарь имя переменной - значение, получаем значение выражения
       public virtual IEnumerable<string> Variables { get; }
       abstract public Expr Deriv();
+      abstract public Expr Deriv(string v);
+      public Vector Grad()
+      {
+         List<Expr> val = new List<Expr>();
+         foreach( var i in Variables)
+            val.Add(Deriv(i));
+         return new Vector(val);
+      }
       public double Integral(Variable Var, Expr l, Expr u, int n, IReadOnlyDictionary<string, double> variableValues)
       {
          var a = l.Compute(variableValues);

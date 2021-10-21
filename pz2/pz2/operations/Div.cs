@@ -13,5 +13,6 @@ namespace pz2.operations
 
       public override string ToString() => $"({a} / {b})";
       public override Expr Deriv() => (a.Deriv()*b - b.Deriv() * a)/(b*b);
+      public override Expr Deriv(string v) => (a.Deriv(v)*b - b.Deriv(v) * a)/(b*b);
    }
 }

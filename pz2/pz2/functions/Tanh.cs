@@ -11,5 +11,6 @@ namespace pz2.functions
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => Math.Tanh(a.Compute(variablesValues));
       public override string ToString() => $"Tanh({a})";
       public override Expr Deriv() => (1 / (Cosh(a)*Cosh(a))) * a.Deriv();
+      public override Expr Deriv(string v) => (1 / (Cosh(a)*Cosh(a))) * a.Deriv(v);
    }
 }

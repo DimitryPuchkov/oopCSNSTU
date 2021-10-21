@@ -12,5 +12,6 @@ namespace pz2.operations
       public Mult(Expr a, Expr b) : base(a, b) { }
       public override string ToString() => $"({a} * {b})";
       public override Expr Deriv() => a.Deriv() * b + b.Deriv() * a;
+      public override Expr Deriv(string v) => a.Deriv(v) * b + b.Deriv(v) * a;
    }
 }

@@ -11,6 +11,7 @@ namespace pz2.functions
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => Math.Sinh(a.Compute(variablesValues));
       public override string ToString() => $"Sinh({a})";
       public override Expr Deriv() =>  Cosh(a) * a.Deriv();
+      public override Expr Deriv(string v) =>  Cosh(a) * a.Deriv(v);
    }
 }
 

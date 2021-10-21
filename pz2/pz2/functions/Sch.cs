@@ -19,5 +19,6 @@ namespace pz2.functions
       }
       public override string ToString() => $"Sch({a})";
         public override Expr Deriv() => (-Coth(a)/Sinh(a))*a.Deriv();
+        public override Expr Deriv(string v) => (-Coth(a)/Sinh(a))*a.Deriv(v);
    }
 }
