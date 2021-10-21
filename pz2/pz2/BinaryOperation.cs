@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using pz2.Exceptions;
 
 namespace pz2
 {
@@ -11,13 +12,12 @@ namespace pz2
       protected Expr b;
       public BinaryOperation(Expr a, Expr b)
       {
-         
+         if (a==null || b == null)
+                throw new YouMadmanException("The expressions cannot be null!");
          this.a = a;
          this.b = b;
       }
-      //public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
-      public override IEnumerable<string> Variables  { get => a.Variables.Concat(b.Variables); }
-      public override bool IsConstant { get => a.IsConstant && b.IsConstant; }
-      public override bool IsPolynom { get; }
+	  public override IEnumerable<string> Variables => a.Variables.Concat(b.Variables);
+	  public override bool IsConstant => a.IsConstant && b.IsConstant;
    }
 }
