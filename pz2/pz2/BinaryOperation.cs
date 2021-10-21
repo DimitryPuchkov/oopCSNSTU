@@ -11,12 +11,13 @@ namespace pz2
       protected Expr b;
       public BinaryOperation(Expr a, Expr b)
       {
+         
          this.a = a;
          this.b = b;
       }
       //public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => 0;
       public override IEnumerable<string> Variables  { get => a.Variables.Concat(b.Variables); }
-      public override bool IsConstant { get; }
+      public override bool IsConstant { get => a.IsConstant && b.IsConstant; }
       public override bool IsPolynom { get; }
    }
 }

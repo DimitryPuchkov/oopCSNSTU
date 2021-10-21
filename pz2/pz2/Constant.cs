@@ -10,7 +10,7 @@ namespace pz2
       private readonly double value; // значение константы
       public Constant(double val) => value = val;
       public override bool IsConstant { get => true; }
-      public override bool IsPolynom { get => false; }
+      public override bool IsPolynom { get => true; }
       public override IEnumerable<string> Variables => Enumerable.Empty<string>(); 
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => value;
       public override string ToString() => value.ToString();
