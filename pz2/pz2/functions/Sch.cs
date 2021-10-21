@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using pz2.Exceptions;
+using static pz2.Functions;
 
 namespace pz2.functions
 {
    class Sch: Function
    {
-      public override bool IsConstant { get => a.IsConstant; }
-      public override bool IsPolynom { get => false; }
       public Sch(Expr a) : base(a) { }
       
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues)
@@ -19,9 +18,6 @@ namespace pz2.functions
          return 1 / r;
       }
       public override string ToString() => $"Sch({a})";
-      public override Expr Deriv()
-      {
-         throw new NotImplementedException();
-      }
+        public override Expr Deriv() => (-Coth(a)/Sinh(a))*a.Deriv();
    }
 }
