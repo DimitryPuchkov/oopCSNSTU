@@ -12,3 +12,16 @@ D:\Dmitry\NETI\C#\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.csproj.CoreCompi
 D:\Dmitry\NETI\C#\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.dll
 D:\Dmitry\NETI\C#\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.pdb
 D:\Dmitry\NETI\C#\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.genruntimeconfig.cache
+C:\Users\PC\oopCSNSTU\pz2\pz2\bin\Debug\netcoreapp3.1\pz2.exe
+C:\Users\PC\oopCSNSTU\pz2\pz2\bin\Debug\netcoreapp3.1\pz2.deps.json
+C:\Users\PC\oopCSNSTU\pz2\pz2\bin\Debug\netcoreapp3.1\pz2.runtimeconfig.json
+C:\Users\PC\oopCSNSTU\pz2\pz2\bin\Debug\netcoreapp3.1\pz2.runtimeconfig.dev.json
+C:\Users\PC\oopCSNSTU\pz2\pz2\bin\Debug\netcoreapp3.1\pz2.dll
+C:\Users\PC\oopCSNSTU\pz2\pz2\bin\Debug\netcoreapp3.1\pz2.pdb
+C:\Users\PC\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.csprojAssemblyReference.cache
+C:\Users\PC\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.AssemblyInfoInputs.cache
+C:\Users\PC\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.AssemblyInfo.cs
+C:\Users\PC\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.csproj.CoreCompileInputs.cache
+C:\Users\PC\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.dll
+C:\Users\PC\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.pdb
+C:\Users\PC\oopCSNSTU\pz2\pz2\obj\Debug\netcoreapp3.1\pz2.genruntimeconfig.cache

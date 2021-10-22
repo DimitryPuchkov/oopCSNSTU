@@ -27,16 +27,16 @@ namespace pz2
       {
          var a = l.Compute(variableValues);
          var b = u.Compute(variableValues);
-         double h = (a - b) / n;
+         double h = (b - a) / n;
          double sum = 0;
-         var dict = new Dictionary<string, double> { [Var.ToString()] = a + 0.5 * h };
+         var dict = new Dictionary<string, double> { [var.ToString()] = a + 0.5 * h };
          dict = dict.Concat(variableValues.Where(x => !dict.ContainsKey(x.Key))).ToDictionary(x => x.Key, x => x.Value);
          try
          {
             for (int i = 0; i < n; i++)
             {
                sum += Compute(dict) * h;
-               dict[Var.ToString()] += h;
+               dict[var.ToString()] += h;
             }
             return sum;
          }
