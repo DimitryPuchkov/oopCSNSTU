@@ -11,6 +11,7 @@ namespace pz2.unaryOpreations
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => new Mult(new Constant(-1), a).Compute(variablesValues);
       public override string ToString() => $"(-{a})";
       public override Expr Deriv() => -a.Deriv();
+      public override Expr Deriv(string v) => -a.Deriv(v);
 
    }
 }

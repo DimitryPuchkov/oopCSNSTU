@@ -15,6 +15,6 @@ namespace pz2
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => value;
       public override string ToString() => value.ToString();
       public override Expr Deriv() => new Constant(0);
-      public override Expr Deriv(string v) => this;
+      public override Expr Deriv(string v) => new Constant(0);
    }
 }

@@ -8,16 +8,24 @@ namespace pz2
 {
    class Vector 
    {
-      private readonly List<Expr> value; // значения элементов вектора
+      private List<Expr> value; // значения элементов вектора
       public Vector(List<Expr> val) => value = val;
-      public List<double> VCompute(IReadOnlyDictionary<string, double> variablesValues)
+      public string VCompute(IReadOnlyDictionary<string, double> variablesValues)
       {
-         List<double> r = new List<double>(value.Count);
+         //List<double> r = new List<double>();
          for (int i = 0; i < value.Count; i++)
-            r[i] = value[i].Compute(variablesValues);
-         return r;
+           value[i] = value[i].Compute(variablesValues);
+
+         return this.ToString();
       }
-      public override string ToString() => value.ToString();
+      public override string ToString()
+      {
+         string r = "";
+         foreach (var i in value)
+            r += $"{i}, ";
+         return "[ "+r+"]";
+      }
+
       public  Expr Deriv() => new Constant(0);
       public static Vector operator +(Vector a, Vector b)
       {
