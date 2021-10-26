@@ -17,15 +17,13 @@ namespace pz2
            r.Add(value[i].Compute(variablesValues));
          return r;
       }
-      public override string ToString()
+      public override string ToString() => String.Join(", ", value);
+      public Vector Deriv()
       {
-         string r = "";
-         foreach (var i in value)
-            r += $"{i} ";
-         return "[ "+r+"]";
+         List<Expr> r = new List<Expr>();
+         foreach (var i in value) r.Add(i.Deriv());
+         return new Vector(r);
       }
-
-      public Expr Deriv() => new Constant(0);
       public static Vector operator +(Vector a, Vector b)
       {
          if (a.value.Count != b.value.Count)
@@ -54,6 +52,12 @@ namespace pz2
       {
          List<Expr> r = new List<Expr>();
          for (int i = 0; i < a.value.Count; i++) r.Add(a.value[i] *b);
+         return new Vector(r);
+      }
+      public static Vector operator *(Expr b, Vector a)
+      {
+         List<Expr> r = new List<Expr>();
+         for (int i = 0; i < a.value.Count; i++) r.Add(a.value[i] * b);
          return new Vector(r);
       }
    }
