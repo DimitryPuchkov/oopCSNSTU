@@ -17,7 +17,7 @@ namespace pz2
          this.a = a;
          this.b = b;
       }
-	  public override IEnumerable<string> Variables => a.Variables.Concat(b.Variables);
+	  public override IEnumerable<string> Variables => a.Variables.Concat(b.Variables).Distinct().ToList();
 	  public override bool IsConstant => a.IsConstant && b.IsConstant;
    }
 }
