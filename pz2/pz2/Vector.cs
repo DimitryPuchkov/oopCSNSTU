@@ -17,6 +17,22 @@ namespace pz2
            r.Add(value[i].Compute(variablesValues));
          return r;
       }
+      public static Expr ScalarMult(Vector a, Vector b)
+      {
+         if (a.value.Count != b.value.Count)
+            throw new YouMadmanException("You madman! Vectors must be same demition! ");
+         Expr r = a.value[0] * b.value[0];
+         for (int i = 1; i < a.value.Count; i++)
+            r += a.value[i] * b.value[i];
+         return r;
+      }
+      public double Norma(IReadOnlyDictionary<string, double> variablesValues)
+      {
+         double r = 0;
+         foreach (var i in value)
+            r += (i * i).Compute(variablesValues);
+         return Math.Sqrt(r);
+      }
       public override string ToString() => String.Join(", ", value);
       public Vector Deriv()
       {
@@ -54,11 +70,15 @@ namespace pz2
          for (int i = 0; i < a.value.Count; i++) r.Add(a.value[i] *b);
          return new Vector(r);
       }
+
       public static Vector operator *(Expr b, Vector a)
       {
          List<Expr> r = new List<Expr>();
          for (int i = 0; i < a.value.Count; i++) r.Add(a.value[i] * b);
          return new Vector(r);
       }
+
+      public static Expr operator *(Vector a, Vector b) => ScalarMult(a, b);
+
    }
 }

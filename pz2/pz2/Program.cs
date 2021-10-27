@@ -20,8 +20,8 @@ namespace pz2
          Vector vec2 = new Vector(new List<Expr>() { 1, 2, 3 });
          
          Expr ex = Coth(a)*Sinh(b); // вызывает знак вопроса что то странное
-         Vector vec3 = ex.Grad();
-         Console.WriteLine(String.Join(", ", vec1.VCompute(dict)));
+         Expr e = vec1 * vec2;
+         Console.WriteLine(e);
          //Expr ex1 = Csch(a).Integral(a, 0, 1, 300, dict);
          //Console.WriteLine($"{ex.Compute(dict):f4}");
          //Console.WriteLine($"{ex1.Compute(dict):f4}");
