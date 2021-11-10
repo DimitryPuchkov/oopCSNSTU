@@ -5,7 +5,7 @@ using static pz2.Functions;
 
 namespace pz2.functions
 {
-   class Cosh : Function
+   public class Cosh : Function
    {
       public Cosh(Expr a) : base(a) { }
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => Math.Cosh(a.Compute(variablesValues));

@@ -7,7 +7,7 @@ using static pz2.Functions;
 
 namespace pz2.functions
 {
-   class Coth : Function
+   public class Coth : Function
    {
       public Coth(Expr a) : base(a) { }
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues)

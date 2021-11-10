@@ -5,7 +5,7 @@ using static pz2.Functions;
 
 namespace pz2.functions
 {
-   class Tanh : Function
+   public class Tanh : Function
    {
       public Tanh(Expr a) : base(a) { }
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => Math.Tanh(a.Compute(variablesValues));

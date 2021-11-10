@@ -5,7 +5,7 @@ using pz2.operations;
 
 namespace pz2.unaryOpreations
 {
-   class UnaryMinus:UnaryOperation
+   public class UnaryMinus:UnaryOperation
    {
       public UnaryMinus(Expr a) : base(a) { }
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => new Mult(new Constant(-1), a).Compute(variablesValues);

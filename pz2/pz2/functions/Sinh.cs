@@ -5,7 +5,7 @@ using static pz2.Functions;
 
 namespace pz2.functions
 {
-   class Sinh : Function
+   public class Sinh : Function
    {
       public Sinh(Expr a): base(a) {}
       public override double Compute(IReadOnlyDictionary<string, double> variablesValues) => Math.Sinh(a.Compute(variablesValues));

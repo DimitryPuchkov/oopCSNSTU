@@ -4,7 +4,7 @@ using System.Text;
 
 namespace pz2
 {
-   abstract class Function : Expr
+   public abstract class Function : Expr
    {
       protected Expr a;
       public override IEnumerable<string> Variables  => a.Variables; 

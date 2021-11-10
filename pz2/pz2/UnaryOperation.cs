@@ -4,7 +4,7 @@ using System.Text;
 
 namespace pz2
 {
-   abstract class UnaryOperation: Expr
+   public abstract class UnaryOperation: Expr
    {
       protected Expr a;
       public override IEnumerable<string> Variables { get; }

@@ -6,7 +6,7 @@ using static pz2.Functions;
 
 namespace pz2.functions
 {
-   class Sch: Function
+   public class Sch: Function
    {
       public Sch(Expr a) : base(a) { }
       
