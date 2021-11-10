@@ -6,7 +6,7 @@ using pz2.Exceptions;
 
 namespace pz2
 {
-   class Vector 
+   public class Vector 
    {
       private readonly List<Expr> value; // значения элементов вектора
       public Vector(List<Expr> val) => value = val;

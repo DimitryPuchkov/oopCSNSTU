@@ -5,7 +5,7 @@ using pz2.Exceptions;
 
 namespace pz2.operations
 {
-   class Div : BinaryOperation 
+   public class Div : BinaryOperation 
    {
       public override bool IsPolynom => a.IsPolynom && b.IsConstant;
       public Div(Expr a, Expr b) : base(a, b) { }

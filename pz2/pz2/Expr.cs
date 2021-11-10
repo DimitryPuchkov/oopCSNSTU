@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace pz2
 {
-   abstract class Expr
+   public abstract class Expr
    {
       public virtual bool IsConstant { get; }
       public virtual bool IsPolynom { get; }

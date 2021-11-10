@@ -6,7 +6,7 @@ using pz2.Exceptions;
 
 namespace pz2
 {
-   abstract class BinaryOperation : Expr
+   public abstract class BinaryOperation : Expr
    {
       protected Expr a;
       protected Expr b;

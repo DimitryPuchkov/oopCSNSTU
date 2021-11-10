@@ -4,7 +4,7 @@ using System.Text;
 
 namespace pz2.operations
 {
-   class Sub : BinaryOperation
+   public class Sub : BinaryOperation
    {
 	  public override bool IsPolynom => a.IsPolynom && b.IsPolynom;
 	  public Sub(Expr a, Expr b) : base(a, b) { }
