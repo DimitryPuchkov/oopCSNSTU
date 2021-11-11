@@ -33,13 +33,31 @@ namespace pz2.operations.Tests
 		[TestMethod()]
 		public void DerivTest()
 		{
-			Assert.Fail();
+			// Arrange
+			var a = new Variable("a");
+			var b = new Variable("b");
+			string expected = "((1 * b) + (1 * a))";
+
+			// Act
+			var s = new Mult(a, b).Deriv().ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
 		public void DerivTest1()
 		{
-			Assert.Fail();
+			// Arrange
+			var a = new Variable("a");
+			var b = new Variable("b");
+			string expected = "((1 * b) + (0 * a))";
+
+			// Act
+			var s = new Mult(a, b).Deriv("a").ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 	}
 }

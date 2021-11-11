@@ -33,13 +33,29 @@ namespace pz2.functions.Tests
 		[TestMethod()]
 		public void DerivTest()
 		{
-			Assert.Fail();
+			//Arrange
+			var a = new Variable("a");
+			string expected = "((-1 / (Sinh(a) * Sinh(a))) * 1)";
+
+			// Act
+			var s = new Coth(a).Deriv().ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
 		public void DerivTest1()
 		{
-			Assert.Fail();
+			//Arrange
+			var a = new Variable("a");
+			string expected = "((-1 / (Sinh(a) * Sinh(a))) * 1)";
+
+			// Act
+			var s = new Coth(a).Deriv("a").ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 	}
 }

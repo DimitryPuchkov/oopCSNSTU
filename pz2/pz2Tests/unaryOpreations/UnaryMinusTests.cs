@@ -11,12 +11,6 @@ namespace pz2.unaryOpreations.Tests
 	public class UnaryMinusTests
 	{
 		[TestMethod()]
-		public void UnaryMinusTest()
-		{
-			Assert.Fail();
-		}
-
-		[TestMethod()]
 		public void ComputeTest()
 		{ 
 			// Arrange
@@ -38,13 +32,33 @@ namespace pz2.unaryOpreations.Tests
 		[TestMethod()]
 		public void DerivTest()
 		{
-			Assert.Fail();
+			// Arrange
+			var a = new Variable("a");
+			string expected = "(-1)";
+
+			// Act
+
+			var s = (-a).Deriv().ToString();
+
+			// Assert
+
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
 		public void DerivTest1()
 		{
-			Assert.Fail();
+			// Arrange
+			var a = new Variable("a");
+			string expected = "(-1)";
+
+			// Act
+
+			var s = (-a).Deriv("a").ToString();
+
+			// Assert
+
+			Assert.AreEqual(expected, s);
 		}
 	}
 }

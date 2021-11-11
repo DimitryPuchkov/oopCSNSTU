@@ -34,13 +34,35 @@ namespace pz2.operations.Tests
 		[TestMethod()]
 		public void DerivTest()
 		{
-			Assert.Fail();
+			// Arrange
+			var a = new Variable("a");
+			var b = new Variable("b");
+			string expected = "(1 + 1)";
+
+			// Act
+
+			var s = new Sum(a, b).Deriv().ToString();
+
+			// Assert
+
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
 		public void DerivTest1()
 		{
-			Assert.Fail();
+			// Arrange
+			var a = new Variable("a");
+			var b = new Variable("b");
+			string expected = "(1 + 0)";
+
+			// Act
+
+			var s = new Sum(a, b).Deriv("a").ToString();
+
+			// Assert
+
+			Assert.AreEqual(expected, s);
 		}
 	}
 }
