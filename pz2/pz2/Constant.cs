@@ -5,7 +5,7 @@ using System.Text;
 
 namespace pz2
 {
-   class Constant:Expr
+   public class Constant:Expr
    {
       private readonly double value; // значение константы
       public Constant(double val) => value = val;

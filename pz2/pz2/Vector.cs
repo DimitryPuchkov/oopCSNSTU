@@ -26,6 +26,13 @@ namespace pz2
             r += a.value[i] * b.value[i];
          return r;
       }
+      public static Vector MultVecExpr(Vector a, Expr b)
+      {
+         List<Expr> r = new List<Expr>();
+         for (int i = 0; i < a.value.Count; i++) r.Add(a.value[i] * b);
+         return new Vector(r);
+      }
+
       public double Norma(IReadOnlyDictionary<string, double> variablesValues)
       {
          double r = 0;
@@ -33,7 +40,7 @@ namespace pz2
             r += (i * i).Compute(variablesValues);
          return Math.Sqrt(r);
       }
-      public override string ToString() => String.Join(", ", value);
+      public override string ToString() => '[' +String.Join(", ", value) + ']';
       public Vector Deriv()
       {
          List<Expr> r = new List<Expr>();
@@ -64,20 +71,9 @@ namespace pz2
          for (int i = 0; i < a.value.Count; i++) r.Add(- a.value[i]);
          return new Vector(r);
       }
-      public static Vector operator *(Vector a, Expr b)
-      {
-         List<Expr> r = new List<Expr>();
-         for (int i = 0; i < a.value.Count; i++) r.Add(a.value[i] *b);
-         return new Vector(r);
-      }
+      public static Vector operator *(Vector a, Expr b) => MultVecExpr(a, b);
 
-      public static Vector operator *(Expr b, Vector a)
-      {
-         List<Expr> r = new List<Expr>();
-         for (int i = 0; i < a.value.Count; i++) r.Add(a.value[i] * b);
-         return new Vector(r);
-      }
-
+      public static Vector operator *(Expr b, Vector a) => MultVecExpr(a, b);
       public static Expr operator *(Vector a, Vector b) => ScalarMult(a, b);
 
    }

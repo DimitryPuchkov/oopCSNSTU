@@ -6,63 +6,93 @@ using System.Text;
 
 namespace pz2.operations.Tests
 {
-	[TestClass()]
-	public class SumTests
-	{
-		[TestMethod()]
-		public void ComputeTest()
-		{
-			// Arrange
-			var a = new Variable("a");
-			var b = new Variable("b");
-			var dict = new Dictionary<string, double>
-			{
-				{ "a", 2 },
-				{ "b", 1 }
-			};
-			double expected = 3;
+   [TestClass()]
+   public class SumTests
+   {
+      [TestMethod()]
+      public void ComputeTest()
+      {
+         // Arrange
+         var a = new Variable("a");
+         var b = new Variable("b");
+         var dict = new Dictionary<string, double>
+         {
+            { "a", 2 },
+            { "b", 1 }
+         };
+         double expected = 3;
+         var obj = new Sum(a, b);
 
-			// Act
+         // Act
 
-			var s = new Sum(a, b).Compute(dict);
+         var s = obj.Compute(dict);
 
-			// Assert
+         // Assert
 
-			Assert.AreEqual(expected, s, 0.001);
-		}
+         Assert.AreEqual(expected, s, 0.001);
+      }
 
-		[TestMethod()]
-		public void DerivTest()
-		{
-			// Arrange
-			var a = new Variable("a");
-			var b = new Variable("b");
-			string expected = "(1 + 1)";
+      [TestMethod()]
+      public void ToStringTest()
+      {
+         //Arrange
+         var a = new Variable("a");
+         var b = new Variable("b");
+         string expected = "(a + b)";
+         var obj = new Sum(a, b);
 
-			// Act
+         // Act
+         var s = obj.ToString();
 
-			var s = new Sum(a, b).Deriv().ToString();
+         // Assert
+         Assert.AreEqual(expected, s);
+      }
 
-			// Assert
+      [TestMethod()]
+      public void NullInitTest()
+      {
+         //Arrange
+         Variable a = null;
+         Variable b = null;
 
-			Assert.AreEqual(expected, s);
-		}
+         // Act Assert
+         Assert.ThrowsException<pz2.Exceptions.YouMadmanException>(() => new Sum(a, b));
+      }
 
-		[TestMethod()]
-		public void DerivTest1()
-		{
-			// Arrange
-			var a = new Variable("a");
-			var b = new Variable("b");
-			string expected = "(1 + 0)";
+      [TestMethod()]
+      public void DerivTest()
+      {
+         // Arrange
+         var a = new Variable("a");
+         var b = new Variable("b");
+         string expected = "(1 + 1)";
+         var obj = new Sum(a, b);
 
-			// Act
+         // Act
 
-			var s = new Sum(a, b).Deriv("a").ToString();
+         var s = obj.Deriv().ToString();
 
-			// Assert
+         // Assert
 
-			Assert.AreEqual(expected, s);
-		}
-	}
+         Assert.AreEqual(expected, s);
+      }
+
+      [TestMethod()]
+      public void DerivTest1()
+      {
+         // Arrange
+         var a = new Variable("a");
+         var b = new Variable("b");
+         string expected = "(1 + 0)";
+         var obj = new Sum(a, b);
+
+         // Act
+
+         var s = obj.Deriv("a").ToString();
+
+         // Assert
+
+         Assert.AreEqual(expected, s);
+      }
+   }
 }

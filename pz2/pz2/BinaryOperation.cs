@@ -18,6 +18,7 @@ namespace pz2
          this.b = b;
       }
 	  public override IEnumerable<string> Variables => a.Variables.Concat(b.Variables).Distinct().ToList();
-	  public override bool IsConstant => a.IsConstant && b.IsConstant;
+      public override bool IsPolynom => a.IsPolynom && b.IsPolynom;
+      public override bool IsConstant => a.IsConstant && b.IsConstant;
    }
 }

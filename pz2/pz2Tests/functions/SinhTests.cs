@@ -19,12 +19,28 @@ namespace pz2.functions.Tests
 				{ "a", 0 }
 			};
 			double expected = 0;
+			var obj = new Sinh(a);
 
 			// Act
-			var s = new Sinh(a).Compute(dict);
+			var s = obj.Compute(dict);
 
 			// Assert
 			Assert.AreEqual(expected, s, 0.001);
+		}
+
+		[TestMethod()]
+		public void ToStringTest()
+		{
+			//Arrange
+			var a = new Variable("a");
+			string expected = "Sinh(a)";
+			var obj = new Sinh(a);
+
+			// Act
+			var s = obj.ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
@@ -33,9 +49,10 @@ namespace pz2.functions.Tests
 			//Arrange
 			var a = new Variable("a");
 			string expected = "(Cosh(a) * 1)";
+			var obj = new Sinh(a);
 
 			// Act
-			var s = new Sinh(a).Deriv().ToString();
+			var s = obj.Deriv().ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);
@@ -47,9 +64,10 @@ namespace pz2.functions.Tests
 			//Arrange
 			var a = new Variable("a");
 			string expected = "(Cosh(a) * 1)";
+			var obj = new Sinh(a);
 
 			// Act
-			var s = new Sinh(a).Deriv("a").ToString();
+			var s = obj.Deriv("a").ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);

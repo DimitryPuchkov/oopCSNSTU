@@ -10,8 +10,8 @@ namespace pz2
 {
    public abstract class Expr
    {
-      public virtual bool IsConstant { get; }
-      public virtual bool IsPolynom { get; }
+      public abstract bool IsConstant { get; }
+      public abstract bool IsPolynom { get; }
       abstract public double Compute(IReadOnlyDictionary<string, double> variablesValues); // передаем словарь имя переменной - значение, получаем значение выражения
       public virtual IEnumerable<string> Variables { get; }
       abstract public Expr Deriv();
@@ -31,20 +31,12 @@ namespace pz2
          double sum = 0;
          var dict = new Dictionary<string, double> { [v.ToString()] = a + 0.5 * h };
          dict = dict.Concat(variableValues.Where(x => !dict.ContainsKey(x.Key))).ToDictionary(x => x.Key, x => x.Value);
-         try
-         {
             for (int i = 0; i < n; i++)
             {
                sum += Compute(dict) * h;
                dict[v.ToString()] += h;
             }
             return sum;
-         }
-         catch
-         {
-            Console.WriteLine("Unable to compute integral");
-            return Double.NaN;
-         }
          
       }
       public static Expr operator +(Expr a, Expr b) =>new  Sum(a, b);
@@ -55,7 +47,7 @@ namespace pz2
       public static implicit operator Expr(double a) => new Constant(a);
    }
 
-   static class Functions
+   public static class Functions
    {
       public static Expr Sinh(Expr a) => new Sinh(a);
       public static Expr Cosh(Expr a) => new Cosh(a);

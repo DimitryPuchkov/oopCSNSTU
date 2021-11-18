@@ -19,15 +19,43 @@ namespace pz2.functions.Tests
 				{ "a", 2 }
 			};
 			double expected = 1.037;
+			var obj = new Coth(a);
 
 			// Act
-			var s = new Coth(a).Compute(dict);
+			var s = obj.Compute(dict);
 
 			// Assert
-			if (a != null)
 				Assert.AreEqual(expected, s, 0.001);
-			else
-				Assert.Fail("Argument is uncorrect");
+		}
+
+		[TestMethod()]
+		public void ComputeTestThrowException()
+		{
+			//Arrange
+			var a = new Variable("a");
+			var dict = new Dictionary<string, double>
+				{
+					{ "a", 0 }
+				};
+			var obj = new Coth(a);
+
+			//Act Assert
+			Assert.ThrowsException<pz2.Exceptions.YouMadmanException>(() => obj.Compute(dict));
+		}
+
+		[TestMethod()]
+		public void ToStringTest()
+		{
+			//Arrange
+			var a = new Variable("a");
+			string expected = "Coth(a)";
+			var obj = new Coth(a);
+
+			// Act
+			var s = obj.ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
@@ -36,9 +64,10 @@ namespace pz2.functions.Tests
 			//Arrange
 			var a = new Variable("a");
 			string expected = "((-1 / (Sinh(a) * Sinh(a))) * 1)";
+			var obj = new Coth(a);
 
 			// Act
-			var s = new Coth(a).Deriv().ToString();
+			var s = obj.Deriv().ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);
@@ -50,9 +79,10 @@ namespace pz2.functions.Tests
 			//Arrange
 			var a = new Variable("a");
 			string expected = "((-1 / (Sinh(a) * Sinh(a))) * 1)";
+			var obj = new Coth(a);
 
 			// Act
-			var s = new Coth(a).Deriv("a").ToString();
+			var s = obj.Deriv("a").ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);

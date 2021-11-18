@@ -20,18 +20,16 @@ namespace pz2.operations.Tests
 				{ "a", 2 },
 				{ "b", 1 }
 			};
-
+			var obj = new Div(a, b);
 			double expected = 2;
 
 			// Act
-			var s = new Div(a, b).Compute(dict);
+			var s = obj.Compute(dict);
 
 			// Assert
-			if(b != null)
 				Assert.AreEqual(expected, s, 0.001);
-			else 
-				Assert.Fail("Division by zero");
 		}
+
 		[TestMethod()]
 		public void ComputeTestThrowException()
 		{
@@ -43,9 +41,26 @@ namespace pz2.operations.Tests
 				{ "a", 2 },
 				{ "b", 0 }
 			};
+			var obj = new Div(a, b);
 
 			//Act Assert
-			Assert.ThrowsException<pz2.Exceptions.YouMadmanException>(() => (a/b).Compute(dict));
+			Assert.ThrowsException<pz2.Exceptions.YouMadmanException>(() => obj.Compute(dict));
+		}
+
+		[TestMethod()]
+		public void ToStringTest()
+		{
+			//Arrange
+			var a = new Variable("a");
+			var b = new Variable("b");
+			string expected = "(a / b)";
+			var obj = new Div(a, b);
+
+			// Act
+			var s = obj.ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
@@ -55,9 +70,10 @@ namespace pz2.operations.Tests
 			var a = new Variable("a");
 			var b = new Variable("b");
 			string expected = "(((1 * b) - (1 * a)) / (b * b))";
+			var obj = new Div(a, b);
 
 			// Act
-			var s = new Div(a, b).Deriv().ToString();
+			var s = obj.Deriv().ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);
@@ -70,9 +86,10 @@ namespace pz2.operations.Tests
 			var a = new Variable("a");
 			var b = new Variable("b");
 			string expected = "(((1 * b) - (0 * a)) / (b * b))";
+			var obj = new Div(a, b);
 
 			// Act
-			var s = new Div(a, b).Deriv("a").ToString();
+			var s = obj.Deriv("a").ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);

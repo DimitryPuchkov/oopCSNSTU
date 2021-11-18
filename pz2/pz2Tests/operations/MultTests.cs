@@ -20,14 +20,30 @@ namespace pz2.operations.Tests
 				{ "a", 2 },
 				{ "b", 1 }
 			};
-
+			var obj = new Mult(a, b);
 			double expected = 2;
 
 			// Act
-			var s = new Mult(a, b).Compute(dict);
+			var s = obj.Compute(dict);
 
 			// Assert
 			Assert.AreEqual(expected, s, 0.001);
+		}
+
+		[TestMethod()]
+		public void ToStringTest()
+		{
+			//Arrange
+			var a = new Variable("a");
+			var b = new Variable("b");
+			string expected = "(a * b)";
+			var obj = new Mult(a, b);
+
+			// Act
+			var s = obj.ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
@@ -37,9 +53,10 @@ namespace pz2.operations.Tests
 			var a = new Variable("a");
 			var b = new Variable("b");
 			string expected = "((1 * b) + (1 * a))";
+			var obj = new Mult(a, b);
 
 			// Act
-			var s = new Mult(a, b).Deriv().ToString();
+			var s = obj.Deriv().ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);
@@ -52,9 +69,10 @@ namespace pz2.operations.Tests
 			var a = new Variable("a");
 			var b = new Variable("b");
 			string expected = "((1 * b) + (0 * a))";
+			var obj = new Mult(a, b);
 
 			// Act
-			var s = new Mult(a, b).Deriv("a").ToString();
+			var s = obj.Deriv("a").ToString();
 
 			// Assert
 			Assert.AreEqual(expected, s);

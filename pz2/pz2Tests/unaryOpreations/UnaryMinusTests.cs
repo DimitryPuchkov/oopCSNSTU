@@ -19,11 +19,11 @@ namespace pz2.unaryOpreations.Tests
 			{
 				{ "a", 2 },
 			};
-
+			var obj = new UnaryMinus(a);
 			double expected = -2;
 
 			// Act
-			var s = new Mult(a, -1).Compute(dict);
+			var s = obj.Compute(dict);
 
 			// Assert
 			Assert.AreEqual(expected, s, 0.001, "Error expression");
@@ -35,10 +35,11 @@ namespace pz2.unaryOpreations.Tests
 			// Arrange
 			var a = new Variable("a");
 			string expected = "(-1)";
+			var obj = new UnaryMinus(a);
 
 			// Act
 
-			var s = (-a).Deriv().ToString();
+			var s = obj.Deriv().ToString();
 
 			// Assert
 
@@ -51,10 +52,11 @@ namespace pz2.unaryOpreations.Tests
 			// Arrange
 			var a = new Variable("a");
 			string expected = "(-1)";
+			var obj = new UnaryMinus(a);
 
 			// Act
 
-			var s = (-a).Deriv("a").ToString();
+			var s = obj.Deriv("a").ToString();
 
 			// Assert
 

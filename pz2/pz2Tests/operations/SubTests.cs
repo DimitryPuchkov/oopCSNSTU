@@ -20,14 +20,30 @@ namespace pz2.operations.Tests
 				{ "a", 2 },
 				{ "b", 1 }
 			};
-		 
+			var obj = new Sub(a, b);
 			double expected = 1;
 
 			// Act
-			var s = new Sub(a, b).Compute(dict);
+			var s = obj.Compute(dict);
 
 			// Assert
 			Assert.AreEqual(expected, s, 0.001);
+		}
+
+		[TestMethod()]
+		public void ToStringTest()
+		{
+			//Arrange
+			var a = new Variable("a");
+			var b = new Variable("b");
+			string expected = "(a - b)";
+			var obj = new Sub(a, b);
+
+			// Act
+			var s = obj.ToString();
+
+			// Assert
+			Assert.AreEqual(expected, s);
 		}
 
 		[TestMethod()]
@@ -37,10 +53,11 @@ namespace pz2.operations.Tests
 			var a = new Variable("a");
 			var b = new Variable("b");
 			string expected = "(1 - 1)";
+			var obj = new Sub(a, b);
 
 			// Act
 
-			var s = new Sub(a, b).Deriv().ToString();
+			var s = obj.Deriv().ToString();
 
 			// Assert
 
@@ -54,10 +71,11 @@ namespace pz2.operations.Tests
 			var a = new Variable("a");
 			var b = new Variable("b");
 			string expected = "(1 - 0)";
+			var obj = new Sub(a, b);
 
 			// Act
 
-			var s = new Sub(a, b).Deriv("a").ToString();
+			var s = obj.Deriv("a").ToString();
 
 			// Assert
 
